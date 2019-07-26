@@ -69,8 +69,7 @@ export function createProvider<T>({
                     const index = mountedValues.current.indexOf(ref);
                     mountedValues.current.splice(index, 1);
                     emitChange();
-                },
-                innerValue,
+                }
             }),
             [emitChange]
         );
