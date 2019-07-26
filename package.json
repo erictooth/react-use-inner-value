@@ -18,7 +18,8 @@
         "nested"
     ],
     "scripts": {
-        "build": "pack build"
+        "build": "pack build",
+        "storybook": "start-storybook"
     },
     "author": "Eric Mantooth",
     "license": "MIT",
