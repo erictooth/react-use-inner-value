@@ -4,7 +4,7 @@ import { createScopedInnerValueContext } from "../src/index.ts";
 
 const stories = storiesOf("default", /*eslint-disable-line no-undef*/ module);
 
-const [PageTitleProvider, usePageTitle] = createScopedInnerValueContext();
+const [PageTitleProvider, usePageTitle, usePageTitleValue] = createScopedInnerValueContext();
 
 function PageSample() {
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -19,10 +19,17 @@ function PageSample() {
     );
 }
 
+function ReadValue() {
+    //eslint-disable-next-line
+    console.log(usePageTitleValue());
+    return null;
+}
+
 stories.add("basic", () => {
     return (
-        <PageTitleProvider onChange={val => console.log(val)}>
+        <PageTitleProvider>
             <PageSample />
+            <ReadValue />
         </PageTitleProvider>
     );
 });

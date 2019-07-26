@@ -15,8 +15,10 @@ const DEFAULT_REDUCE_PROPS_TO_STATE = <T extends {}>(values: T[]) => values[valu
 
 export function createProvider<T>({
     context,
+    valContext,
 }: {
     context: React.Context<InnerValueContextType<T> | null>;
+    valContext: React.Context<T | void>;
 }) {
     return function InnerValueProvider(props: Props<T>) {
         const { children, onChange, reducePropsToState = DEFAULT_REDUCE_PROPS_TO_STATE } = props;
@@ -69,11 +71,15 @@ export function createProvider<T>({
                     const index = mountedValues.current.indexOf(ref);
                     mountedValues.current.splice(index, 1);
                     emitChange();
-                }
+                },
             }),
             [emitChange]
         );
 
-        return React.createElement(context.Provider, { value: contextValue }, children);
+        return React.createElement(
+            context.Provider,
+            { value: contextValue },
+            React.createElement(valContext.Provider, { value: innerValue }, children)
+        );
     };
 }
