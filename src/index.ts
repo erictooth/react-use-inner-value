@@ -12,5 +12,5 @@ export function createScopedInnerValueContext<T>() {
         }
         return val;
     };
-    return [createProvider({ context }), createHook({ useInnerValueContext })];
+    return [createProvider({ context }), createHook({ useInnerValueContext }), useInnerValueContext];
 }
