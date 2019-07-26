@@ -1,0 +1,83 @@
+{
+    "name": "react-use-inner-value",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/erictooth/react-menu-window.git"
+    },
+    "homepage": "https://github.com/erictooth/react-menu-window/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/erictooth/react-menu-window/issues"
+    },
+    "keywords": [
+        "react",
+        "component",
+        "side effect",
+        "inner",
+        "nested"
+    ],
+    "scripts": {
+        "build": "pack build"
+    },
+    "author": "Eric Mantooth",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "^16.8.0"
+    },
+    "devDependencies": {
+        "@erictooth/eslint-config": "^1.1.2",
+        "@erictooth/prettier-config": "^2.0.0",
+        "@pika/pack": "^0.4.0",
+        "@pika/plugin-build-node": "^0.4.0",
+        "@pika/plugin-build-web": "^0.4.0",
+        "@pika/plugin-ts-standard-pkg": "^0.4.0",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "@testing-library/react": "^8.0.4",
+        "@types/react": "^16.8.23",
+        "@types/storybook__react": "^4.0.2",
+        "@typescript-eslint/parser": "^1.11.0",
+        "awesome-typescript-loader": "^5.2.1",
+        "babel-loader": "^8.0.6",
+        "eslint": "^6.0.1",
+        "jest": "^24.8.0",
+        "jest-dom": "^3.5.0",
+        "prettier": "^1.18.2",
+        "react": "^16.8.0",
+        "react-docgen-typescript-loader": "^3.1.0",
+        "react-dom": "^16.8.0",
+        "typescript": "^3.5.3"
+    },
+    "prettier": "@erictooth/prettier-config",
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "extends": [
+            "@erictooth/eslint-config",
+            "@erictooth/eslint-config/react",
+            "@erictooth/eslint-config/typescript"
+        ]
+    },
+    "eslintIgnore": [
+        "src/**/__tests__"
+    ],
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-ts-standard-pkg"
+            ],
+            [
+                "@pika/plugin-build-web"
+            ],
+            [
+                "@pika/plugin-build-node"
+            ]
+        ]
+    },
+    "jest": {
+        "collectCoverage": true,
+        "setupFiles": [
+            "./test/jestsetup.js"
+        ]
+    }
+}
